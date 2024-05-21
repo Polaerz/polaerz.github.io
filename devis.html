@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+        .company-info, .client-info {
+            margin-bottom: 20px;
+        }
+        .company-info p, .client-info p {
+            margin: 5px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .total {
+            text-align: right;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .terms {
+            font-size: 0.9em;
+        }
+        .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="devis-content">
+        <header>
+            <div class="company-info">
+                <h1>La Faidide Solution</h1>
+                <p>43 avenue René Coty, Brunoy</p>
+                <p>Téléphone : 01 23 45 67 89</p>
+                <p>Email : lafaididesolution@gmail.com</p>
+            </div>
+            <div class="devis-info">
+                <h2>Devis</h2>
+                <p>Date : 21/05/2024</p>
+                <p>Numéro de Devis : 001234</p>
+            </div>
+        </header>
+        <div class="client-info">
+            <h3>Informations du Client</h3>
+            <p>Guillaume Maupuy</p>
+            <p>2 Rue des Cerfs, Brunoy</p>
+            <p>Téléphone : 06 98 76 54 32</p>
+            <p>Email : guillaume.maupuy@monlycee.net</p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Quantité</th>
+                    <th>Prix Unitaire</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>G1</td>
+                    <td>1</td>
+                    <td>50 €</td>
+                    <td>50 €</td>
+                </tr>
+                <tr>
+                    <td>G2</td>
+                    <td>2</td>
+                    <td>30 €</td>
+                    <td>60 €</td>
+                </tr>
+                <tr>
+                    <td>R1</td>
+                    <td>3</td>
+                    <td>15 €</td>
+                    <td>45 €</td>
+                </tr>
+                <tr>
+                    <td>C1</td>
+                    <td>2</td>
+                    <td>80 €</td>
+                    <td>160 €</td>
+                </tr>
+                <tr>
+                    <td>M3</td>
+                    <td>2</td>
+                    <td>120 €</td>
+                    <td>60 €</td>
+                </tr>
+                <tr>
+                    <td>M4</td>
+                    <td>1</td>
+                    <td>60 €</td>
+                    <td>60 €</td>
+                </tr>
+                <tr>
+                    <td>Fils*</td>
+                    <td>3</td>
+                    <td>15 €</td>
+                    <td>45 €</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="total">
+            <p>Sous-total : 720 €</p>
+            <p>TVA (20%) : 144 €</p>
+            <p><strong>Total : 864 €</strong></p>
+        </div>
+        <div class="terms">
+            <h4>Termes et Conditions</h4>
+            <p>Le paiement est dû dans les 30 jours suivant la date de facturation. Des frais de retards seront sanctionnés de 2% par jours de retard.</p>
+            <small>* Le prix des fils est dût au coût des mains d'oeuvres nécessaires.</small>
+        </div>
+        <a id="download-pdf" class="download-btn">Télécharger en PDF</a>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script>
+        document.getElementById('download-pdf').addEventListener('click', function () {
+            const { jsPDF } = window.jspdf;
+
+            html2canvas(document.getElementById('devis-content')).then(canvas => {
+                const imgData = canvas.toDataURL('image/png');
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const imgProps = pdf.getImageProperties(imgData);
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+                
+                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
+                pdf.save('devis.pdf');
+            });
+        });
+    </script>
+</body>
+</html>
