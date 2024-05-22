@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Faidide Solution</title>
+    <link rel="icon" type="image/png" href="faidide_logo.png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #4e54c8, #8f94fb); /* Dégradé de couleur en fond */
+            position: relative;
+        }
+
+        .contact-info {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 80%; /* Largeur maximale */
+            margin-bottom: 50px; /* Espacement du footer */
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info h1 {
+            font-size: 2em;
+            margin: 20px 0;
+        }
+
+        .contact-info p {
+            font-size: 1.2em;
+            line-height: 1.5;
+            margin: 20px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #4e54c8; /* Couleur de fond de la bande du bas */
+            color: #fff;
+            width: calc(100% - 40px); /* Largeur égale à 100% moins la marge de 20px de chaque côté */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto; /* Centrage horizontal */
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-info">
+        <h1>Contactez-nous</h1>
+        <p>Pour toute demande ou question, vous pouvez nous contacter :</p>
+        <p><strong>Adresse :</strong> 123 Rue de la Robotique, 75000 Paris</p>
+        <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
+        <p><strong>Email :</strong> contact@faidide.com</p>
+    </div>
+    <footer>
+        <p><a href="index.html" style="color: #fff; text-decoration: none;">Accueil</a> | &copy; 2024 Faidide Solution. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
