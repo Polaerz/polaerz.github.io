@@ -11,6 +11,24 @@
             padding: 0;
             background-color: #f4f4f4;
         }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: #FFD700;
+        }
         .container {
             width: 80%;
             margin: auto;
@@ -71,6 +89,16 @@
     </style>
 </head>
 <body>
+    <header class="navbar">
+        <div class="logo">
+            <a href="#">faidide solution</a>
+        </div>
+        <nav>
+            <a href="accueil.html">Accueil</a>
+            <a href="catalogue.html">Produits</a>
+            <a href="devis.html">Contact</a>
+        </nav>
+    </header>
     <div class="container" id="devis-content">
         <header>
             <div class="company-info">
