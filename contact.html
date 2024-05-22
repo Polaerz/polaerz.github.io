@@ -11,15 +11,42 @@
             margin: 0;
             padding: 0;
             color: #333;
+            background: linear-gradient(to bottom right, #4e54c8, #8f94fb); /* Dégradé de couleur en fond */
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-sizing: border-box;
+        }
+        .navbar .logo {
+            margin-right: auto; /* Espace automatique entre logo et liens */
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+            white-space: nowrap; /* Empêche les mots de se diviser en plusieurs lignes */
+        }
+        .navbar a:hover {
+            color: #FFD700;
+        }
+        .main-content {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
-            background: linear-gradient(to bottom right, #4e54c8, #8f94fb); /* Dégradé de couleur en fond */
-            position: relative;
+            min-height: 100vh;
+            padding-top: 80px; /* Espacement pour la navbar */
         }
-
         .contact-info {
             text-align: center;
             background: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
@@ -28,45 +55,50 @@
             border-radius: 10px;
             max-width: 80%; /* Largeur maximale */
             margin-bottom: 50px; /* Espacement du footer */
-            position: relative;
-            z-index: 1;
         }
-
         .contact-info h1 {
             font-size: 2em;
             margin: 20px 0;
         }
-
         .contact-info p {
             font-size: 1.2em;
             line-height: 1.5;
             margin: 20px 0;
         }
-
         footer {
             text-align: center;
             padding: 20px;
             background: #4e54c8; /* Couleur de fond de la bande du bas */
             color: #fff;
-            width: calc(100% - 40px); /* Largeur égale à 100% moins la marge de 20px de chaque côté */
-            position: absolute;
+            width: 100%; /* Largeur à 100% */
+            position: fixed;
             bottom: 0;
             left: 0;
-            right: 0;
-            margin: auto; /* Centrage horizontal */
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
             z-index: 0;
         }
     </style>
 </head>
 <body>
-    <div class="contact-info">
-        <h1>Contactez-nous</h1>
-        <p>Pour toute demande ou question, vous pouvez nous contacter :</p>
-        <p><strong>Adresse :</strong> 43 avenue René Coty, Brunoy</p>
-        <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
-        <p><strong>Email :</strong> lafaididesolution@gmail.com</p>
+    <header class="navbar">
+        <div class="logo">
+            <a href="accueil.html">Accueil</a>
+        </div>
+        <nav>
+            <a href="devis.html">Votre Devis</a>
+            <a href="catalogue.html">Produits</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <div class="main-content">
+        <div class="contact-info">
+            <header>
+                <h1>Contactez-nous</h1>
+                <p>Pour toute demande ou question, vous pouvez nous contacter :</p>
+                <p><strong>Adresse :</strong> 43 avenue René Coty, Brunoy</p>
+                <p><strong>Téléphone :</strong> +33 1 23 45 67 89</p>
+                <p><strong>Email :</strong> lafaididesolution@gmail.com</p>
+            </header>
+        </div>
     </div>
     <footer>
         <p><a href="index.html" style="color: #fff; text-decoration: none;">Accueil</a> | &copy; 2024 Faidide Solution. Tous droits réservés.</p>
