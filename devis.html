@@ -16,7 +16,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0, 0, 0, 0.8);
         }
 
         .navbar a {
@@ -31,7 +31,7 @@
         }
         .container {
             width: 80%;
-            margin: auto;
+            margin: 40px auto;
             background: #fff;
             padding: 20px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -74,6 +74,26 @@
         }
         .terms {
             font-size: 0.9em;
+            margin-bottom: 40px;
+        }
+        .signature {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .signature div {
+            width: 40%;
+            text-align: center;
+        }
+        .signature div p {
+            margin-bottom: 60px;
+            border-bottom: 1px solid #000;
+        }
+        .signature div span {
+            display: inline-block;
+            margin-top: 10px;
+            font-size: 0.9em;
         }
         .download-btn {
             display: inline-block;
@@ -91,12 +111,12 @@
 <body>
     <header class="navbar">
         <div class="logo">
-            <a href="#">faidide solution</a>
+            <a href="#">Faidide Solution</a>
         </div>
         <nav>
             <a href="accueil.html">Accueil</a>
             <a href="catalogue.html">Produits</a>
-            <a href="devis.html">Contact</a>
+            <a href="contact.html">Contact</a>
         </nav>
     </header>
     <div class="container" id="devis-content">
@@ -158,7 +178,7 @@
                     <td>M3</td>
                     <td>2</td>
                     <td>120 €</td>
-                    <td>60 €</td>
+                    <td>240 €</td>
                 </tr>
                 <tr>
                     <td>M4</td>
@@ -175,14 +195,24 @@
             </tbody>
         </table>
         <div class="total">
-            <p>Sous-total : 720 €</p>
-            <p>TVA (20%) : 144 €</p>
-            <p><strong>Total : 864 €</strong></p>
+            <p>Sous-total : 660 €</p>
+            <p>TVA (20%) : 132 €</p>
+            <p><strong>Total : 792 €</strong></p>
         </div>
         <div class="terms">
             <h4>Termes et Conditions</h4>
             <p>Le paiement est dû dans les 30 jours suivant la date de facturation. Des frais de retards seront sanctionnés de 2% par jours de retard.</p>
-            <small>* Le prix des fils est dût au coût des mains d'oeuvres nécessaires.</small>
+            <small>* Le prix des fils est dû au coût des mains d'œuvres nécessaires.</small>
+        </div>
+        <div class="signature">
+            <div>
+                <p></p>
+                <span>Signature du Client</span>
+            </div>
+            <div>
+                <p></p>
+                <span>Signature de l'Entreprise</span>
+            </div>
         </div>
         <a id="download-pdf" class="download-btn">Télécharger en PDF</a>
     </div>
