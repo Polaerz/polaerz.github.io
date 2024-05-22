@@ -15,14 +15,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 10px;
             background: rgba(0, 0, 0, 0.8);
         }
 
         .navbar a {
             color: #fff;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 10px;
             transition: color 0.3s;
         }
 
@@ -30,81 +30,87 @@
             color: #FFD700;
         }
         .container {
-            width: 80%;
-            margin: 40px auto;
+            width: 90%;
+            margin: 20px auto;
             background: #fff;
-            padding: 20px;
+            padding: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         header h1 {
-            font-size: 2em;
+            font-size: 1.2em;
             margin: 0;
         }
         .company-info, .client-info {
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         .company-info p, .client-info p {
-            margin: 5px 0;
+            margin: 3px 0;
+            font-size: 0.8em;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
         table, th, td {
             border: 1px solid #ddd;
         }
         th, td {
-            padding: 10px;
+            padding: 5px;
             text-align: left;
+            font-size: 0.8em;
         }
         th {
             background-color: #f4f4f4;
         }
         .total {
             text-align: right;
-            font-size: 1.2em;
-            margin-top: 10px;
+            font-size: 0.9em;
+            margin-top: 5px;
         }
         .terms {
-            font-size: 0.9em;
-            margin-bottom: 40px;
+            font-size: 0.7em;
+            margin-bottom: 10px;
         }
         .signature {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 40px;
+            margin-top: 20px;
         }
         .signature div {
-            width: 40%;
+            width: 45%;
             text-align: center;
         }
         .signature div p {
-            margin-bottom: 60px;
+            margin-bottom: 20px;
             border-bottom: 1px solid #000;
         }
         .signature div span {
             display: inline-block;
-            margin-top: 10px;
-            font-size: 0.9em;
+            margin-top: 5px;
+            font-size: 0.7em;
         }
         .download-btn {
             display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
+            padding: 5px 10px;
+            margin-top: 10px;
             background-color: #007bff;
             color: #fff;
             text-align: center;
             text-decoration: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 0.8em;
+        }
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -221,6 +227,8 @@
     <script>
         document.getElementById('download-pdf').addEventListener('click', function () {
             const { jsPDF } = window.jspdf;
+            const downloadButton = document.getElementById('download-pdf');
+            downloadButton.classList.add('hidden'); // Masquer le bouton avant la génération du PDF
 
             html2canvas(document.getElementById('devis-content')).then(canvas => {
                 const imgData = canvas.toDataURL('image/png');
@@ -231,6 +239,8 @@
                 
                 pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
                 pdf.save('devis.pdf');
+
+                downloadButton.classList.remove('hidden'); // Afficher à nouveau le bouton après la génération du PDF
             });
         });
     </script>
