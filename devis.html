@@ -109,18 +109,15 @@
             cursor: pointer;
             font-size: 0.8em;
         }
-        .hidden {
-            display: none;
-        }
     </style>
 </head>
 <body>
     <header class="navbar">
         <div class="logo">
-            <a href="index.html">Accueil</a>
+            <a href="#">Faidide Solution</a>
         </div>
         <nav>
-            <a href="devis.html">Votre Devis</a>
+            <a href="accueil.html">Accueil</a>
             <a href="catalogue.html">Produits</a>
             <a href="contact.html">Contact</a>
         </nav>
@@ -141,10 +138,10 @@
         </header>
         <div class="client-info">
             <h3>Informations du Client</h3>
-            <p>Gregoire Maupuy</p>
+            <p>Guillaume Maupuy</p>
             <p>2 Rue des Cerfs, Brunoy</p>
             <p>Téléphone : 06 98 76 54 32</p>
-            <p>Email : gregoire.maupuy@monlycee.net</p>
+            <p>Email : guillaume.maupuy@monlycee.net</p>
         </div>
         <table>
             <thead>
@@ -220,29 +217,7 @@
                 <span>Signature de l'Entreprise</span>
             </div>
         </div>
-        <a id="download-pdf" class="download-btn">Télécharger en PDF</a>
+        <a href="devisPDF.pdf" download="devis.pdf" class="download-btn">Télécharger en PDF</a>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script>
-        document.getElementById('download-pdf').addEventListener('click', function () {
-            const { jsPDF } = window.jspdf;
-            const downloadButton = document.getElementById('download-pdf');
-            downloadButton.classList.add('hidden'); // Masquer le bouton avant la génération du PDF
-
-            html2canvas(document.getElementById('devis-content')).then(canvas => {
-                const imgData = canvas.toDataURL('image/png');
-                const pdf = new jsPDF('p', 'mm', 'a4');
-                const imgProps = pdf.getImageProperties(imgData);
-                const pdfWidth = pdf.internal.pageSize.getWidth();
-                const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-                
-                pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight);
-                pdf.save('devis.pdf');
-
-                downloadButton.classList.remove('hidden'); // Afficher à nouveau le bouton après la génération du PDF
-            });
-        });
-    </script>
 </body>
 </html>
